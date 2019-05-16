@@ -24,5 +24,13 @@ class Pkmn {
     this.spd = spd
   }
 }
-
+/*
+FILENAME.stats[0].base_stat = spd
+FILENAME.stats[1].base_stat = spd
+FILENAME.stats[2].base_stat = spd
+FILENAME.stats[3].base_stat = spd
+FILENAME.stats[4].base_stat = spd
+FILENAME.stats[5].base_stat = spd
+FILENAME.stats[6].base_stat = spd
+*/
 var Mimikyu = new Pkmn()
