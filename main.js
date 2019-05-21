@@ -19,7 +19,7 @@ const jason = new Trainer('Jason', [778,306,385])
 console.log(jason)
 
 class Pkmn {
-  constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd) {
+  constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd, types, sprite) {
     this.pkdex = pkdex
     this.name = name
     this.hp = hp
@@ -28,6 +28,8 @@ class Pkmn {
     this.sp_atk = sp_atk
     this.sp_def = sp_def
     this.spd = spd
+    this.types = types
+    this.sprite = sprite
   }
 }
 
@@ -37,7 +39,12 @@ function loadPkmn(pknum) {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText)
       console.log(typeof data)
-      pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat)
+      if (data.types.length = 1) {
+        pknum = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"]], data.sprites.front_default)
+        jason.party.push(pknum)
+      } else {
+        pknum = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], data.sprites.front_default)
+      }
     }
   }
   xhttp.open('GET', `https://pokeapi.co/api/v2/pokemon/${pknum}`, true)
@@ -54,7 +61,7 @@ for (team in jason.party) {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText)
       console.log(typeof data)
-      pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat)
+      pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`)
       jason.party.push(pokemon)
       jason.party.shift()
       console.log(pokemon)
@@ -70,3 +77,6 @@ for (team in jason.party) {
 jasonPkmn()
 jasonPkmn()
 jasonPkmn()
+
+partyPkmn = document.getElementsByClassName('pSlider')
+partyPkmn[0].setAttribute
