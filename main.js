@@ -14,9 +14,9 @@ class Trainer {
     this.name = name
     this.party = party
   }
-
 }
-const jason = new Trainer('Jason', ['778','306','385'])
+const jason = new Trainer('Jason', [778,306,385])
+console.log(jason)
 
 class Pkmn {
   constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd) {
@@ -44,4 +44,29 @@ function loadPkmn(pknum) {
   xhttp.send()
 }
 
-loadPkmn(778)
+// loadPkmn(778)
+
+count = 0
+for (team in jason.party) {
+  function jasonPkmn(team) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      data = JSON.parse(this.responseText)
+      console.log(typeof data)
+      pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat)
+      jason.party.push(pokemon)
+      jason.party.shift()
+      console.log(pokemon)
+    }
+  }
+  xhttp.open('GET', `https://pokeapi.co/api/v2/pokemon/${jason.party[count]}`, true)
+  xhttp.send()
+  console.log(count)
+  count++
+}
+}
+
+jasonPkmn()
+jasonPkmn()
+jasonPkmn()
