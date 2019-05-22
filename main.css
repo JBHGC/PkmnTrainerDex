@@ -20,17 +20,22 @@
   position: absolute;
   display: grid;
   height: 70%;
-  width: 60%;
+  width: 30%;
   right: 78%;
-  float: left;
   grid-row-gap: 10px;
 }
 
 .pSlider {
   background-color: lightgray;
-  position: relative;
   float: left;
   width: 100%;
   height: 100%;
 
+}
+
+.pkmnIcon {
+  position: absolute;
+  right: -1%;
+  width: 27%;
+  height: 14%;
 }
