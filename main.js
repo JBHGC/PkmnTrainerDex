@@ -22,7 +22,7 @@ const jason = new Trainer('Jason', [778,306,385])
 console.log(jason)
 
 class Pkmn {
-  constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd, types, sprite) {
+  constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd, types, sprite, full) {
     this.pkdex = pkdex
     this.name = name
     this.hp = hp
@@ -33,6 +33,7 @@ class Pkmn {
     this.spd = spd
     this.types = types
     this.sprite = sprite
+    this.full = full
   }
 }
 
@@ -43,10 +44,10 @@ function loadPkmn(pknum) {
       data = JSON.parse(this.responseText)
       // console.log(typeof data) JUST TO TEST THAT THE DATA IS NOW AN OBJECT
       if (data.types.length = 2) {
-        pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`)
+        pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
         jason.party.push(pknum)
       } else {
-        pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`)
+        pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
         jason.party.push(pknum)
       }
       console.log(pokemon)
@@ -65,7 +66,7 @@ for (team in jason.party) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText)
-      pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`)
+      pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
       jason.party.push(pokemon)
       jason.party.shift()
       console.log(pokemon)
@@ -81,7 +82,7 @@ for (team in jason.party) {
 jasonPkmn()
 jasonPkmn()
 jasonPkmn()
-// 
+//
 // let pokemonImgLoad = document.createElement('img')
 // pokemonImgLoad.setAttribute('src', `${jason.party[count].sprite}`)
 
