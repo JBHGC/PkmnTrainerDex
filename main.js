@@ -74,8 +74,11 @@ for (team in jason.party) {
       jason.party.shift()
       console.log(pokemon)
       partyIcons[0].setAttribute('src', `${jason.party[0].sprite}`)
+      partyNames[0].innerText =  `${jason.party[0].name.toUpperCase()}`
       partyIcons[1].setAttribute('src', `${jason.party[1].sprite}`)
+      partyNames[1].innerText =  `${jason.party[1].name.toUpperCase()}`
       partyIcons[2].setAttribute('src', `${jason.party[2].sprite}`)
+      partyNames[2].innerText =  `${jason.party[2].name.toUpperCase()}`
     }
   }
   xhttp.open('GET', `https://pokeapi.co/api/v2/pokemon/${jason.party[count]}`, true)
