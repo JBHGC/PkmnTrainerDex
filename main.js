@@ -18,11 +18,14 @@ class Trainer {
     console.log(this.party)
   }
 }
+
 const jason = new Trainer('Jason', [778,306,385])
 console.log(jason)
+partyIcons = document.getElementsByClassName('pkmnIcon')
+partyNames = document.getElementsByClassName('pkmnText')
 
 class Pkmn {
-  constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd, types, sprite, full) {
+  constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd, types, sprite, fullImage) {
     this.pkdex = pkdex
     this.name = name
     this.hp = hp
@@ -33,7 +36,7 @@ class Pkmn {
     this.spd = spd
     this.types = types
     this.sprite = sprite
-    this.full = full
+    this.fullImage = fullImage
   }
 }
 
@@ -70,6 +73,9 @@ for (team in jason.party) {
       jason.party.push(pokemon)
       jason.party.shift()
       console.log(pokemon)
+      partyIcons[0].setAttribute('src', `${jason.party[0].sprite}`)
+      partyIcons[1].setAttribute('src', `${jason.party[1].sprite}`)
+      partyIcons[2].setAttribute('src', `${jason.party[2].sprite}`)
     }
   }
   xhttp.open('GET', `https://pokeapi.co/api/v2/pokemon/${jason.party[count]}`, true)
@@ -86,5 +92,6 @@ jasonPkmn()
 // let pokemonImgLoad = document.createElement('img')
 // pokemonImgLoad.setAttribute('src', `${jason.party[count].sprite}`)
 
-partyPkmn = document.getElementsByClassName('pSlider')
-partyPkmn[0].classList.add('loaded')
+
+console.log(jason.party[0].fullImage)
+// partyNames[0].setAttribute
