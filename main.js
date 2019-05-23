@@ -47,10 +47,10 @@ function loadPkmn(pknum) {
       data = JSON.parse(this.responseText)
       // console.log(typeof data) JUST TO TEST THAT THE DATA IS NOW AN OBJECT
       if (data.types.length = 2) {
-        pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
+        pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
         jason.party.push(pknum)
       } else {
-        pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
+        pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
         jason.party.push(pknum)
       }
       console.log(pokemon)
@@ -69,16 +69,16 @@ for (team in jason.party) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText)
-      pokemon = new Pkmn(data.id, data.species.name, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
+      pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
       jason.party.push(pokemon)
       jason.party.shift()
       console.log(pokemon)
       partyIcons[0].setAttribute('src', `${jason.party[0].sprite}`)
-      partyNames[0].innerText =  `${jason.party[0].name.toUpperCase()}`
       partyIcons[1].setAttribute('src', `${jason.party[1].sprite}`)
-      partyNames[1].innerText =  `${jason.party[1].name.toUpperCase()}`
       partyIcons[2].setAttribute('src', `${jason.party[2].sprite}`)
-      partyNames[2].innerText =  `${jason.party[2].name.toUpperCase()}`
+      partyNames[0].innerText =  `${jason.party[0].name}`
+      partyNames[1].innerText =  `${jason.party[1].name}`
+      partyNames[2].innerText =  `${jason.party[2].name}`
     }
   }
   xhttp.open('GET', `https://pokeapi.co/api/v2/pokemon/${jason.party[count]}`, true)
