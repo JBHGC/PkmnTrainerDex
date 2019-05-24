@@ -8,6 +8,9 @@ def = data.stats[3].base_stat
 atk = data.stats[4].base_stat
 hp = data.stats[5].base_stat
 */
+var loaded = []
+var checkSlots = document.getElementsByClassName('loaded')
+var fillSlots = document.getElementsByClassName('pSlider')
 
 class Trainer {
   constructor(name, party) {
@@ -25,7 +28,7 @@ partyIcons = document.getElementsByClassName('pkmnIcon')
 partyNames = document.getElementsByClassName('pkmnText')
 
 class Pkmn {
-  constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd, types, sprite, fullImage) {
+  constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd, types, abilities, sprite, fullImage) {
     this.pkdex = pkdex
     this.name = name
     this.hp = hp
@@ -35,6 +38,7 @@ class Pkmn {
     this.sp_def = sp_def
     this.spd = spd
     this.types = types
+    this.abilities = abilities
     this.sprite = sprite
     this.fullImage = fullImage
   }
