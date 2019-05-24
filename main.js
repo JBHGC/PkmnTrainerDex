@@ -28,7 +28,7 @@ partyIcons = document.getElementsByClassName('pkmnIcon')
 partyNames = document.getElementsByClassName('pkmnText')
 
 class Pkmn {
-  constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd, types, abilities, sprite, fullImage) {
+  constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd, abilities, sprite, fullImage) {
     this.pkdex = pkdex
     this.name = name
     this.hp = hp
@@ -37,7 +37,6 @@ class Pkmn {
     this.sp_atk = sp_atk
     this.sp_def = sp_def
     this.spd = spd
-    this.types = types
     this.abilities = abilities
     this.sprite = sprite
     this.fullImage = fullImage
@@ -50,12 +49,15 @@ function loadPkmn(pknum) {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText)
       // console.log(typeof data) JUST TO TEST THAT THE DATA IS NOW AN OBJECT
-      if (data.types.length = 2) {
-        pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
-        jason.party.push(pknum)
+      if (data.abilities.length = 1) {
+        pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
+        jason.party.push(pokemon)
+      } else if (data.abilities.length = 2){
+        pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name, data.abilities[1].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
+        jason.party.push(pokemon)
       } else {
-        pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
-        jason.party.push(pknum)
+        pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name, data.abilities[1].ability.name, data.abilities[2].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
+        jason.party.push(pokemon)
       }
       console.log(pokemon)
     }
@@ -73,8 +75,17 @@ for (team in jason.party) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText)
-      pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.types[0].type["name"], data.types[1].type["name"]], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
-      jason.party.push(pokemon)
+      console.log(data)
+      if (data.abilities.length = 1) {
+        pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
+        jason.party.push(pokemon)
+      } else if (data.abilities.length = 2){
+        pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name, data.abilities[1].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
+        jason.party.push(pokemon)
+      } else {
+        pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name, data.abilities[1].ability.name, data.abilities[2].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
+        jason.party.push(pokemon)
+      }
       jason.party.shift()
       console.log(pokemon)
       partyIcons[0].setAttribute('src', `${jason.party[0].sprite}`)
