@@ -36,6 +36,7 @@ const jason = new Trainer('Jason', [778,306,385])
 console.log(jason)
 partyIcons = document.getElementsByClassName('pkmnIcon')
 partyNames = document.getElementsByClassName('pkmnText')
+partySlider = document.getElementsByClassName('pSlider')
 
 class Pkmn {
   constructor(pkdex, name, hp, atk, def, sp_atk, sp_def, spd, abilities, sprite, fullImage) {
@@ -134,4 +135,7 @@ jasonPkmn()
     document.getElementsByClassName('ability')[0].innerText = (`${jason.party[id].abilities}`)
     partyIcons[id].setAttribute('src', `${jason.party[id].sprite}`)
     partyNames[id].innerText = `${jason.party[id].name}`
+    // partyIcons[id].classList.add('disappearIcons')
+    // partyNames[id].classList.add('disappearName')
+    // partySlider[id].classList.add('disappearpSlider')
   }
