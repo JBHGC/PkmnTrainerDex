@@ -10,4 +10,43 @@
   border-top-right-radius: 30px;
 }
 
+#sideToSide {
+  display: inline-grid;
+}
+#sideToSide #showCard {
+  display: grid;
+  height: 70.5%;
+  background-color: lightgray;
+  width: 64%;
+  position: absolute;
+  top: 17%;
+  right: 5%;
+  box-shadow: 6px 5px 0px 0px;
+  border-radius: 30px;
+}
+#sideToSide #showCard #pkmnFullImage {
+  position: relative;
+  height: auto;
+  width: 35%;
+  border: 1px solid black;
+  border-radius: 11%;
+  box-shadow: 6px 5px 0px 0px;
+}
+
+#statsCard {
+  position: absolute;
+  width: 50%;
+  height: 51%;
+  left: 37%;
+}
+#statsCard .stat {
+  font-family: sans-serif;
+  box-shadow: 3px 2px 5px 0px;
+}
+#statsCard #name {
+  text-align: center !important;
+  font-size: xx-large;
+  box-shadow: none !important;
+}
+
 /*# sourceMappingURL=output.css.map */

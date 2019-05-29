@@ -8,22 +8,34 @@
   </head>
   <body>
     <nav id='topbar'>
-
-        <input class='corner' type="search" name="pksearch" placeholder="Search Pkmn">
-        <input class='corner' type="button" value="🔍">
+      <h1 id='navTrainer'>Jason's Party</h1>
+        <!-- <input class='corner' type="search" name="pksearch" placeholder="Search Pkmn">
+        <input class='corner' type="button" value="🔍"> -->
     </nav>
-    
-    <section id="teamSlider">
-      <div class="pSlider"><p class='pkmnText'></p><img class="pkmnIcon"></div>
-      <div class="pSlider"><p class='pkmnText'></p><img class="pkmnIcon"></div>
-      <div class="pSlider"><p class='pkmnText'></p><img class="pkmnIcon"></div>
-      <div class="pSlider"><p class='pkmnText'></p><img class="pkmnIcon"></div>
-      <div class="pSlider"><p class='pkmnText'></p><img class="pkmnIcon"></div>
-      <div class="pSlider"><p class='pkmnText'></p><img class="pkmnIcon"></div>
-    </section>
-    <section id='trainerCard' class='container'>
-      <img class='pkmnFullImage'>
-    </section>
+  <div id="sideToSide">
+      <section id="teamSlider">
+        <div class="pSlider" onclick="check(0)"><p class='pkmnText'></p><img class="pkmnIcon"></div>
+        <div class="pSlider" onclick="check(1)"><p class='pkmnText'></p><img class="pkmnIcon"></div>
+        <div class="pSlider" onclick="check(2)"><p class='pkmnText'></p><img class="pkmnIcon"></div>
+        <div class="pSlider" onclick='check(3)'><p class='pkmnText'></p><img class="pkmnIcon"></div>
+        <div class="pSlider" onclick='check(4)'><p class='pkmnText'></p><img class="pkmnIcon"></div>
+        <div class="pSlider" onclick='check(5)'><p class='pkmnText'></p><img class="pkmnIcon"></div>
+      </section>
+      <section id='showCard'>
+        <img id='pkmnFullImage'>
+        <section id='statsCard'>
+          <p class='stat' id='name'></p>
+          <p class='stat' id='hp'></p>
+          <p class='stat' id='atk'></p>
+          <p class='stat' id='def'></p>
+          <p class='stat' id='sp_atk'></p>
+          <p class='stat' id='sp_def'></p>
+          <p class='stat' id='spd'></p>
+        </section>
+        <p id='abilities'>Ability/Abilities:</p>
+        <p class='ability' id='abilities'></p>
+      </section>
+  </div>
 
     <script src="main.js" charset="utf-8"></script>
   </body>

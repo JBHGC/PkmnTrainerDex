@@ -1,4 +1,4 @@
-/*
+/* REFERENCE FOR MYSELF
 pkdex = data.id
 name = data.species.name
 spd = data.stats[0].base_stat
@@ -19,6 +19,16 @@ class Trainer {
   }
   all() {
     console.log(this.party)
+  }
+  add(newPkmn) {
+    loadPkmn(newPkmn)
+  }
+  get(name) {
+    for (var search of this.party) {
+      if (search.name == name || search.pkdex == name){
+      console.log(search)
+    }
+    }
   }
 }
 
@@ -48,38 +58,35 @@ function loadPkmn(pknum) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText)
-      // console.log(typeof data) JUST TO TEST THAT THE DATA IS NOW AN OBJECT
-      if (data.abilities.length = 1) {
+      if (data.abilities.length == 1) {
         pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
         jason.party.push(pokemon)
-      } else if (data.abilities.length = 2){
+      } else if (data.abilities.length == 2){
         pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name, data.abilities[1].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
         jason.party.push(pokemon)
       } else {
         pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name, data.abilities[1].ability.name, data.abilities[2].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
         jason.party.push(pokemon)
       }
-      console.log(pokemon)
+      partyIcons[`${jason.party.length-1}`].setAttribute('src', `${jason.party[`${jason.party.length-1}`].sprite}`)
+      partyNames[`${jason.party.length-1}`].innerText = `${jason.party[`${jason.party.length-1}`].name}`
     }
   }
   xhttp.open('GET', `https://pokeapi.co/api/v2/pokemon/${pknum}`, true)
   xhttp.send()
 }
 
-// loadPkmn(778)
-
 count = 0
-for (team in jason.party) {
+for (let team in jason.party) {
   function jasonPkmn(team) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText)
-      console.log(data)
-      if (data.abilities.length = 1) {
+      if (data.abilities.length == 1) {
         pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
         jason.party.push(pokemon)
-      } else if (data.abilities.length = 2){
+      } else if (data.abilities.length == 2){
         pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name, data.abilities[1].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
         jason.party.push(pokemon)
       } else {
@@ -87,18 +94,16 @@ for (team in jason.party) {
         jason.party.push(pokemon)
       }
       jason.party.shift()
-      console.log(pokemon)
       partyIcons[0].setAttribute('src', `${jason.party[0].sprite}`)
       partyIcons[1].setAttribute('src', `${jason.party[1].sprite}`)
       partyIcons[2].setAttribute('src', `${jason.party[2].sprite}`)
-      partyNames[0].innerText =  `${jason.party[0].name}`
-      partyNames[1].innerText =  `${jason.party[1].name}`
-      partyNames[2].innerText =  `${jason.party[2].name}`
+      partyNames[0].innerText = `${jason.party[0].name}`
+      partyNames[1].innerText = `${jason.party[1].name}`
+      partyNames[2].innerText = `${jason.party[2].name}`
     }
   }
   xhttp.open('GET', `https://pokeapi.co/api/v2/pokemon/${jason.party[count]}`, true)
   xhttp.send()
-  // console.log(count) JUST TO CHECK THAT THE COUNT WORKS
   count++
 }
 }
@@ -106,10 +111,23 @@ for (team in jason.party) {
 jasonPkmn()
 jasonPkmn()
 jasonPkmn()
-//
-// let pokemonImgLoad = document.createElement('img')
-// pokemonImgLoad.setAttribute('src', `${jason.party[count].sprite}`)
 
-
-console.log(jason.party[0].fullImage)
-// partyNames[0].setAttribute
+  function check(id) {
+    document.getElementById('pkmnFullImage').setAttribute('src', `${jason.party[id].fullImage}`)
+    document.getElementById('name').innerText = (`${jason.party[id].name}`)
+    document.getElementById('hp').innerText = (`HP: ${jason.party[id].hp}`)
+    document.getElementById('hp').setAttribute('style', `width: ${2*jason.party[id].hp}px`)
+    document.getElementById('atk').innerText = (`ATK: ${jason.party[id].atk}`)
+    document.getElementById('atk').setAttribute('style', `width: ${2*(jason.party[id].atk)}px`)
+    document.getElementById('def').innerText = (`DEF: ${jason.party[id].def}`)
+    document.getElementById('def').setAttribute('style', `width: ${2*(jason.party[id].def)}px`)
+    document.getElementById('sp_atk').innerText = (`SPATK: ${jason.party[id].sp_atk}`)
+    document.getElementById('sp_atk').setAttribute('style', `width: ${2*(jason.party[id].sp_atk)}px`)
+    document.getElementById('sp_def').innerText = (`SPDEF: ${jason.party[id].sp_def}`)
+    document.getElementById('sp_def').setAttribute('style', `width: ${2*(jason.party[id].sp_def)}px`)
+    document.getElementById('spd').innerText = (`SPD: ${jason.party[id].spd}`)
+    document.getElementById('spd').setAttribute('style', `width: ${2*(jason.party[id].spd)}px`)
+    document.getElementsByClassName('ability')[0].innerText = (`${jason.party[id].abilities}`)
+    partyIcons[id].setAttribute('src', `${jason.party[id].sprite}`)
+    partyNames[id].innerText = `${jason.party[id].name}`
+  }

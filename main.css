@@ -1,7 +1,20 @@
+body {
+  background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/pokemon-grass-background-7.png');
+}
+
 #topbar {
-  background-color: red;
+  background-color: lightsteelblue;
   margin: -8px;
   height: 62px;
+}
+
+#navTrainer {
+  font-family: sans-serif;
+  position: absolute;
+  padding-left: 38%;
+  font-size: 36px;
+  top: -18px;
+
 }
 
 .corner {
@@ -9,11 +22,15 @@
 }
 
 .corner:nth-child(1) {
-  margin-left: 75%;
+  margin-left: 5%;
 }
 
 .corner:nth-child(0) {
 
+}
+
+#sideToSide {
+  display: inline-grid;
 }
 
 #teamSlider {
@@ -23,16 +40,13 @@
   height: 70%;
   width: 46%;
   right: 75%;
-  grid-row-gap: 10px;
+  grid-row-gap: 2.5%;
 }
 
 .pSlider {
   background-color: lightgray;
   float: left;
   box-shadow: 6px 5px 0px 0px;
-  /* width: 100%;
-  height: 100%; */
-
 }
 
 .pkmnIcon {
@@ -40,4 +54,39 @@
   right: -1%;
   width: auto;
   height: 14%;
+}
+
+#abilities {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-family: sans-serif;
+  font-size: xx-large;
+}
+
+#tagForAbility{
+  margin-top: 20px;
+}
+
+#hp {
+  background-color: green;
+}
+
+#atk {
+  background-color: red;
+}
+
+#def {
+  background-color: blue;
+}
+
+#sp_atk {
+  background-color: red;
+}
+
+#sp_def {
+  background-color: blue;
+}
+
+#spd {
+  background-color: yellow;
 }
