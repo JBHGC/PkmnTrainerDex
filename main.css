@@ -49,6 +49,11 @@ body {
   box-shadow: 6px 5px 0px 0px;
 }
 
+.pSlider:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
 .pkmnIcon {
   position: absolute;
   right: -1%;

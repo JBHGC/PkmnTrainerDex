@@ -113,6 +113,10 @@ jasonPkmn()
 jasonPkmn()
 
   function check(id) {
+    if (jason.party[id] == undefined) {
+      newNum = prompt('Enter a Pokemon Name/Dex Number.')
+      jason.add(newNum)
+    }
     document.getElementById('pkmnFullImage').setAttribute('src', `${jason.party[id].fullImage}`)
     document.getElementById('name').innerText = (`${jason.party[id].name}`)
     document.getElementById('hp').innerText = (`HP: ${jason.party[id].hp}`)
