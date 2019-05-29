@@ -2,36 +2,6 @@ body {
   background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/pokemon-grass-background-7.png');
 }
 
-/* @keyframes icons {
-  from {right: -1%;}
-  to {right: 60%;}
-}
-
-@keyframes names {
-  from {left: 58%;}
-  to {left: 18%;}
-}
-
-@keyframes slider {
-  from {width: 100%;}
-    to {width: 35%;}
-}
-
-.disappearIcons {
-  animation: icons 1s;
-  right: 60% !important;
-}
-
-.disappearName {
-  animation: name 3s;
-  left: 18% !important;
-
-}
-
-.disappearpSlider {
-  animation: pSlider 5s;
-  width: 35% !important;
-} */
 
 #topbar {
   background-color: lightsteelblue;
@@ -125,3 +95,33 @@ body {
 #spd {
   background-color: yellow;
 }
+/* @keyframes icons {
+from {right: -1%;}
+to {right: 60%;}
+}
+
+@keyframes names {
+from {left: 58%;}
+to {left: 18%;}
+}
+
+@keyframes slider {
+from {width: 100%;}
+to {width: 35%;}
+}
+
+.disappearIcons {
+animation: icons 1s;
+right: 60% !important;
+}
+
+.disappearName {
+animation: name 3s;
+left: 18% !important;
+
+}
+
+.disappearpSlider {
+animation: pSlider 5s;
+width: 35% !important;
+} */
