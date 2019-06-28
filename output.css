@@ -40,7 +40,7 @@
   left: 37%;
 }
 #statsCard .stat {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   box-shadow: 3px 2px 5px 0px;
 }
 #statsCard #name {
