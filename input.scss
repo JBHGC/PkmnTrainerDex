@@ -1,9 +1,10 @@
 .pkmnText {
   position: absolute;
-  font-family: sans-serif;
+  // font-family: sans-serif;
   // font-size: 21px;
   left: 58%;
   padding: 2%;
+  padding-top: 0;
 }
 
 .pSlider {
@@ -39,7 +40,7 @@
   height: 51%;
   left: 37%;
   .stat {
-    font-family: sans-serif;
+    // font-family: sans-serif;
     box-shadow: 3px 2px 5px 0px;
 }
   #name {

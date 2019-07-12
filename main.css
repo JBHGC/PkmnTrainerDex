@@ -1,6 +1,7 @@
 body {
   background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/pokemon-grass-background-7.png');
-  font-size: large!important;
+  font-family: 'Press Start 2P', cursive;
+  font-size: large;
 }
 
 
@@ -11,7 +12,7 @@ body {
 }
 
 #navTrainer {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   position: absolute;
   padding-left: 38%;
   /* font-size: 36px; */
@@ -65,7 +66,7 @@ body {
 #abilities {
   margin-top: 10px;
   margin-bottom: 0;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   /* font-size: xx-large; */
 }
 
