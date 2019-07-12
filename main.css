@@ -1,5 +1,6 @@
 body {
   background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/pokemon-grass-background-7.png');
+  font-size: large!important;
 }
 
 
@@ -13,7 +14,7 @@ body {
   font-family: sans-serif;
   position: absolute;
   padding-left: 38%;
-  font-size: 36px;
+  /* font-size: 36px; */
   top: -18px;
 
 }
@@ -65,7 +66,7 @@ body {
   margin-top: 10px;
   margin-bottom: 0;
   font-family: sans-serif;
-  font-size: xx-large;
+  /* font-size: xx-large; */
 }
 
 #tagForAbility{
