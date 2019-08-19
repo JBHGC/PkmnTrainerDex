@@ -63,16 +63,16 @@ function loadPkmn(pknum, trainer) {
       data = JSON.parse(this.responseText)
       if (data.abilities.length == 1) {
         pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
-        trainer.party.push(pokemon)
+        jason.party.push(pokemon)
       } else if (data.abilities.length == 2){
         pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name, data.abilities[1].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
-        trainer.party.push(pokemon)
+        jason.party.push(pokemon)
       } else {
         pokemon = new Pkmn(data.id, data.species.name.toUpperCase(), data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, [data.abilities[0].ability.name, data.abilities[1].ability.name, data.abilities[2].ability.name], `https://img.pokemondb.net/sprites/sun-moon/icon/${data.species.name}.png`, data.sprites.front_default)
-        trainer.party.push(pokemon)
+        jason.party.push(pokemon)
       }
-      partyIcons[`${trainer.party.length-1}`].setAttribute('src', `${trainer.party[`${trainer.party.length-1}`].sprite}`)
-      partyNames[`${trainer.party.length-1}`].innerText = `${trainer.party[`${trainer.party.length-1}`].name}`
+      partyIcons[`${jason.party.length-1}`].setAttribute('src', `${jason.party[`${jason.party.length-1}`].sprite}`)
+      partyNames[`${jason.party.length-1}`].innerText = `${jason.party[`${jason.party.length-1}`].name}`
     }
   }
   xhttp.open('GET', `https://pokeapi.co/api/v2/pokemon/${pknum}`, true)
