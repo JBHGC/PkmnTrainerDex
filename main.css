@@ -10,11 +10,14 @@
 
 
 @media only screen and (min-width: 850px) {
-body {
-  background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/pokemon-grass-background-7.png');
-  font-family: 'Press Start 2P', cursive;
-  font-size: large;
-}
+  body {
+    background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/pokemon-grass-background-7.png');
+    font-family: 'Press Start 2P', cursive;
+    font-size: large;
+  }
+  #name {
+    font-size: xx-large !important;
+  }
 }
 
 
