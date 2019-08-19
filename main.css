@@ -3,7 +3,11 @@
     background-color: lightblue;
     font-size: xx-small !important;
   }
+  #name {
+    font-size: large !important;
+  }
 }
+
 
 @media only screen and (min-width: 850px) {
 body {
