@@ -1,7 +1,16 @@
+@media only screen and (max-width: 850px) {
+  body {
+    background-color: lightblue;
+    font-size: xx-small !important;
+  }
+}
+
+@media only screen and (min-width: 850px) {
 body {
   background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/pokemon-grass-background-7.png');
   font-family: 'Press Start 2P', cursive;
   font-size: large;
+}
 }
 
 
@@ -96,12 +105,6 @@ body {
 
 #spd {
   background-color: yellow;
-}
-@media only screen and (max-width: 850px) {
-  body {
-    background-color: lightblue;
-    font-size: xx-small !important;
-  }
 }
 /* @keyframes icons {
 from {right: -1%;}
