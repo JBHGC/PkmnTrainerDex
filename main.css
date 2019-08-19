@@ -97,7 +97,7 @@ body {
 #spd {
   background-color: yellow;
 }
-@media only screen and (max-width: <900px) {
+@media only screen and (max-width: 850px) {
   body {
     background-color: lightblue;
     font-size: xx-small !important;
