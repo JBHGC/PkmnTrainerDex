@@ -17,6 +17,7 @@
   }
   #name {
     font-size: xx-large !important;
+    color: black;
   }
 }
 
@@ -111,8 +112,13 @@
 }
 
 #spd {
-  background-color: yellow;
+  background-color: orange;
 }
+
+#pkmnFullImage {
+  background-color: lightgray;
+}
+
 /* @keyframes icons {
 from {right: -1%;}
 to {right: 60%;}
