@@ -115,28 +115,28 @@ jasonPkmn()
 jasonPkmn()
 jasonPkmn()
 desktopScreenSize = 850;
-cssPXMultiplier = 2.5;
+cssPXMultiplier = .2;
 
   function check(id) {
     if (jason.party[id] == undefined) {
       newNum = prompt('Enter a Pokemon Name/Dex Number.')
       jason.add(newNum)
     }
-    if (screen.width < desktopScreenSize){cssPXMultiplier = 1}
+    // if (screen.width > desktopScreenSize){cssPXMultiplier = 2.5}
     document.getElementById('pkmnFullImage').setAttribute('src', `${jason.party[id].fullImage}`)
     document.getElementById('name').innerText = (`${jason.party[id].name}`)
     document.getElementById('hp').innerText = (`HP: ${jason.party[id].hp}`)
-    document.getElementById('hp').setAttribute('style', `width: ${cssPXMultiplier*jason.party[id].hp}px`)
+    document.getElementById('hp').setAttribute('style', `width: ${cssPXMultiplier*jason.party[id].hp}vw`)
     document.getElementById('atk').innerText = (`ATK: ${jason.party[id].atk}`)
-    document.getElementById('atk').setAttribute('style', `width: ${cssPXMultiplier*(jason.party[id].atk)}px`)
+    document.getElementById('atk').setAttribute('style', `width: ${cssPXMultiplier*(jason.party[id].atk)}vw`)
     document.getElementById('def').innerText = (`DEF: ${jason.party[id].def}`)
-    document.getElementById('def').setAttribute('style', `width: ${cssPXMultiplier*(jason.party[id].def)}px`)
+    document.getElementById('def').setAttribute('style', `width: ${cssPXMultiplier*(jason.party[id].def)}vw`)
     document.getElementById('sp_atk').innerText = (`SPATK: ${jason.party[id].sp_atk}`)
-    document.getElementById('sp_atk').setAttribute('style', `width: ${cssPXMultiplier*(jason.party[id].sp_atk)}px`)
+    document.getElementById('sp_atk').setAttribute('style', `width: ${cssPXMultiplier*(jason.party[id].sp_atk)}vw`)
     document.getElementById('sp_def').innerText = (`SPDEF: ${jason.party[id].sp_def}`)
-    document.getElementById('sp_def').setAttribute('style', `width: ${cssPXMultiplier*(jason.party[id].sp_def)}px`)
+    document.getElementById('sp_def').setAttribute('style', `width: ${cssPXMultiplier*(jason.party[id].sp_def)}vw`)
     document.getElementById('spd').innerText = (`SPD: ${jason.party[id].spd}`)
-    document.getElementById('spd').setAttribute('style', `width: ${cssPXMultiplier*(jason.party[id].spd)}px`)
+    document.getElementById('spd').setAttribute('style', `width: ${cssPXMultiplier*(jason.party[id].spd)}vw`)
     document.getElementsByClassName('ability')[0].innerText = (`${jason.party[id].abilities}`)
     partyIcons[id].setAttribute('src', `${jason.party[id].sprite}`)
     partyNames[id].innerText = `${jason.party[id].name}`
