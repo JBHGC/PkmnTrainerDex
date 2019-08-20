@@ -115,7 +115,7 @@ jasonPkmn()
 jasonPkmn()
 jasonPkmn()
 desktopScreenSize = 850;
-cssPXMultiplier = .35;
+cssPXMultiplier = .22;
 
   function check(id) {
     if (jason.party[id] == undefined) {
